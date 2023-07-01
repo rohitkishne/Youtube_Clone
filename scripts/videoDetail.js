@@ -76,6 +76,8 @@ async function getComments() {
     }
 }
 
+
+
 function renderComments(comments) {
     commentsContainer.innerHTML = '';
     comments.forEach(comment => {
@@ -111,7 +113,7 @@ function renderComments(comments) {
                                         <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
                                     </span>
                                 </div>
-                                <button class="reply-btn" onclick="seeReply()">
+                                <button class="reply-btn" onclick="seeReply('${comment.id}')">
                                     REPLY
                                 </button>
                             </div>
@@ -120,9 +122,27 @@ function renderComments(comments) {
 }
 
 
-async function seeReply() {
+// async function seeReply(commentId) {
     
-}
+//     const url = `${BASE_URL_1}/comments?key=${API_KEY_1}&part=snippet&parentId=${commentId}&maxResults=5`
+//     try {
+//         const response = await fetch(url, {
+//             method:"get"
+//         });
+//         const data = await response.json();
 
-// getVideoDetail(videoId);
-// getComments();
+//         const replies = data.items;
+
+//         renderReplies(replies);
+
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+// function renderReplies(replies) {
+    
+// }
+
+getVideoDetail(videoId);
+getComments();

@@ -40,7 +40,7 @@ html{
 
 /* main recommendation */
 .recommendation{
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     width: 30%;
     height: 86vh;
 }
@@ -99,6 +99,7 @@ html{
     min-height: 6em;
     display: flex;
     gap: 5px;
+    position: relative;
 }
 
 /* .comment-comment-info */
@@ -156,7 +157,21 @@ html{
     cursor: pointer;
 }
 
+/* .comment-reply */
+/* .comment .reply-comment{
+    border: 2px solid red;
+    position: absolute;
+    width: 75%;
+    height: 6em;
+    z-index: 3;
+    background-color: #111111;
+    top: 80px;
+    left: 191px;
+} */
+
+/*--------------Comments Not found----------------*/
 .comment-error{
     color: gray;
     font-size: 20px;
 }
+
