@@ -158,16 +158,18 @@ html{
 }
 
 /* .comment-reply */
-/* .comment .reply-comment{
-    border: 2px solid red;
+.comment .reply-comment{
     position: absolute;
     width: 75%;
-    height: 6em;
+    min-height: 6em;
     z-index: 3;
     background-color: #111111;
     top: 80px;
     left: 191px;
-} */
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
 
 /*--------------Comments Not found----------------*/
 .comment-error{

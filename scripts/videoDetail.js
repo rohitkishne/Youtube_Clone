@@ -117,32 +117,76 @@ function renderComments(comments) {
                                     REPLY
                                 </button>
                             </div>
+                            <div id="reply-comment" class="reply-comment"></div>
                         </div>`
     });
 }
 
 
-// async function seeReply(commentId) {
+const replyComment = document.getElementById("reply-comment");
+
+async function seeReply(commentId) {
+    replyComment.style.display = replyComment.style.display === 'none';
+    if(replyComment.style.display === 'none')
+    {
+        replyComment.style.display = 'flex';
+        const url = `${BASE_URL_1}/comments?key=${API_KEY_1}&part=snippet&parentId=${commentId}&maxResults=5`
+        try {
+            const response = await fetch(url, {
+                method:"get"
+            });
+            const data = await response.json();
+
+            const replies = data.items;
+
+            renderReplies(replies);
+
+        } catch (error) {
+            console.log("error,occured", error)
+        }
+    }
+    else{
+        replyComment.style.display = 'none'
+    }
     
-//     const url = `${BASE_URL_1}/comments?key=${API_KEY_1}&part=snippet&parentId=${commentId}&maxResults=5`
-//     try {
-//         const response = await fetch(url, {
-//             method:"get"
-//         });
-//         const data = await response.json();
+}
 
-//         const replies = data.items;
-
-//         renderReplies(replies);
-
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
-// function renderReplies(replies) {
-    
-// }
+function renderReplies(replies) {
+    replyComment.innerHTML = '';
+    replies.forEach(reply => {
+        replyComment.innerHTML += `
+                            <div id="comment" class="comment">
+                            <div class="comment-person">
+                                <img src="./Assets/images/Header/Profile.png" alt="">
+                            </div>
+                            <div class="comment-info">
+                                <div class="person-name">
+                                    <span class="name">James Gouse</span>
+                                    <span class="when">8 hours ago</span>
+                                </div>
+                                <div class="comment-type">
+                                    <span>
+                                        Wow, world is full of different skills
+                                    </span>
+                                </div>
+                                <div class="reply">
+                                    <div class="comment-like">
+                                        <span>
+                                            <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
+                                        </span>
+                                        <span class="likeno">3</span>
+                                    </div>
+                                    <div class="comment-dislike">
+                                        <span>
+                                            <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                    `
+    });   
+}
 
 getVideoDetail(videoId);
 getComments();
