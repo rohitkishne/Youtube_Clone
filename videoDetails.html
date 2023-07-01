@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoDetails</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/videoInfo.css">
+</head>
+<body>
+    <header class="navbar">
+        <section class="left">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#666666}</style><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+            </span>
+            <span><img src="./Assets/images/Header/LogoYT-logo.png" alt="Youtube logo"></span>
+        </section>
+        <section class="middle">
+            <div class="input">
+                <input type="text" name="search" class="search" id="search" placeholder="Search">
+                <div class="search-icon">
+                    <button id="search-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><style>svg{fill:#ffffff}</style><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="microphone">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><style>svg{fill:#ffffff}</style><path d="M192 0C139 0 96 43 96 96V256c0 53 43 96 96 96s96-43 96-96V96c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 89.1 66.2 162.7 152 174.4V464H120c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H216V430.4c85.8-11.7 152-85.3 152-174.4V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 70.7-57.3 128-128 128s-128-57.3-128-128V216z"/></svg>
+            </div>
+        </section>
+        <section class="right">
+            <span>
+                <img src="./Assets/images/Header/createcamera-icon.png" alt="camera icon">
+            </span>
+            <span>
+                <img src="./Assets/images/Header/Appsdotmenu-icon.png" alt="dot menu">
+            </span>
+            <span>
+                <img src="./Assets/images/Header/Notifications.png" alt="notification icon">
+            </span>
+            <span>
+                <img src="./Assets/images/Header/Profile.png" alt="Profile logo">
+            </span>
+        </section>
+    </header>
+
+    <main class="video-details-recommendation">
+        <section id="videoInfo" class="video-info">
+            <div class="video-detail-card">
+                <iframe 
+                    id="yt-videoId"
+                    width="740" 
+                    height="315" 
+                    src=""  
+                    allow="autoplay;" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-desc">
+                <div class="video-title">
+                    Blind Woodturner:Turning passion into fine art
+                </div>
+                <div class="likes-views">
+                    <div class="like-left">
+                        <span>576,969 views</span>
+                        <span>Oct 8, 2021</span>
+                    </div>
+                    <div class="like-right">
+                        <img src="./Assets/images/videoDetails/video-share/Top-Level.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="video-comment">
+                <div id="comment" class="comment">
+                    <div class="comment-person">
+                        <img src="./Assets/images/Header/Profile.png" alt="">
+                    </div>
+                    <div class="comment-info">
+                        <div class="person-name">
+                            <span class="name">James Gouse</span>
+                            <span class="when">8 hours ago</span>
+                        </div>
+                        <div class="comment-type">
+                            <span>
+                                Wow, world is full of different skills
+                            </span>
+                        </div>
+                        <div class="reply">
+                            <div class="comment-like">
+                                <span>
+                                    <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
+                                </span>
+                                <span class="likeno">3</span>
+                            </div>
+                            <div class="comment-dislike">
+                                <span>
+                                    <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
+                                </span>
+                            </div>
+                            <button class="reply-btn" onclick="seeReply()">REPLY</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="recommendation">
+
+        </section>
+    </main>
+
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/videoDetail.js"></script>
+</body>
+</html>

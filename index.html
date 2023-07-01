@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./Assets/images/yt-favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube_Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <section class="left">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#666666}</style><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+            </span>
+            <span><img src="./Assets/images/Header/LogoYT-logo.png" alt="Youtube logo"></span>
+        </section>
+        <section class="middle">
+            <div class="input">
+                <input type="text" name="search" class="search" id="search" placeholder="Search">
+                <div class="search-icon">
+                    <button id="search-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><style>svg{fill:#ffffff}</style><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="microphone">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><style>svg{fill:#ffffff}</style><path d="M192 0C139 0 96 43 96 96V256c0 53 43 96 96 96s96-43 96-96V96c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 89.1 66.2 162.7 152 174.4V464H120c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H216V430.4c85.8-11.7 152-85.3 152-174.4V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 70.7-57.3 128-128 128s-128-57.3-128-128V216z"/></svg>
+            </div>
+        </section>
+        <section class="right">
+            <span>
+                <img src="./Assets/images/Header/createcamera-icon.png" alt="camera icon">
+            </span>
+            <span>
+                <img src="./Assets/images/Header/Appsdotmenu-icon.png" alt="dot menu">
+            </span>
+            <span>
+                <img src="./Assets/images/Header/Notifications.png" alt="notification icon">
+            </span>
+            <span>
+                <img src="./Assets/images/Header/Profile.png" alt="Profile logo">
+            </span>
+        </section>
+    </header>
+    <main class="main-container">
+        <aside class="aside-menu">
+            <div class="home-menu">
+                <div class="home-tab">
+                    <span><img src="./Assets/images/aside-asset/home/home.png" alt=""></span>
+                    <span>Home</span>
+                </div>
+                <div class="home-tab">
+                    <span><img src="./Assets/images/aside-asset/home/explore.png" alt=""></span>
+                    <span>Explore</span>
+                </div>
+                <div class="home-tab">
+                    <span><img src="./Assets/images/aside-asset/home/subscriptions.png" alt="">
+                    </span>
+                    <span>Subscriptions</span>
+                </div>
+            </div>
+            <div class="library-menu">
+                <div class="library-tab">
+                    <span><img src="./Assets/images/aside-asset/library/library.png" alt=""></span>
+                    <span>Library</span>   
+                </div>
+                <div class="library-tab">
+                    <span><img src="./Assets/images/aside-asset/library/history.png" alt=""></span>
+                    <span>History</span>
+                </div>
+                <div class="library-tab">
+                    <span><img src="./Assets/images/aside-asset/library/your-videos.png" alt=""></span>
+                    <span>Your Videos</span>
+                </div>
+                <div class="library-tab">
+                    <span><img src="./Assets/images/aside-asset/library/watch-later.png" alt=""></span>
+                    <span>Watch Later</span>
+                </div>
+                <div class="library-tab">
+                    <span><img src="./Assets/images/aside-asset/library/liked.png" alt=""></span>
+                    <span>Liked Videos</span>
+                </div>
+            </div>
+            <div class="subscription">
+                <div class="subsciption-tab">
+                    <span><img src="./Assets/images/aside-asset/subscription/first-sub.png" alt=""></span>
+                    <span>James Gouse</span>
+                </div>
+                <div class="subsciption-tab">
+                    <span><img src="./Assets/images/aside-asset/subscription/second-sub.png" alt=""></span>
+                    <span>Alan Cooper</span>
+                </div>
+                <div class="subsciption-tab">
+                    <span><img src="./Assets/images/aside-asset/subscription/third-sub.png" alt=""></span>
+                    <span>Marcus Levin</span>
+                </div>
+                <div class="subsciption-tab">
+                    <span><img src="./Assets/images/aside-asset/subscription/fourth-sub.png" alt=""></span>
+                    <span>Alexis Sears</span>
+                </div>
+                <div class="subsciption-tab">
+                    <span><img src="./Assets/images/aside-asset/subscription/fifth-sub.png" alt=""></span>
+                    <span>Jesica Lambert</span>
+                </div>
+            </div>
+            <div class="more-resource">
+                <div class="more-tab">
+                    <span><img src="./Assets/images/aside-asset/more-resources/premium.png" alt=""></span>
+                    <span>Youtube Premium</span>
+                </div>
+                <div class="more-tab">
+                    <span><img src="./Assets/images/aside-asset/more-resources/gaming.png" alt=""></span>
+                    <span>Gaming</span>
+                </div>
+                <div class="more-tab">
+                    <span><img src="./Assets/images/aside-asset/more-resources/live.png" alt=""></span>
+                    <span>Live</span>
+                </div>
+            </div>
+        </aside>
+        <section class="videos">
+            <section class="main-container-top-tabs">
+                <div class="tab">
+                    <button class="items-tab all-tab">All</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                <div class="tab">
+                    <button class="items-tab">Item</button>
+                </div>
+                
+            </section>
+            <button class="scroll-tab">
+                <span>
+                    <i class="fa-solid fa-chevron-right" style="color: #ffffffa6;"></i>
+                </span>
+            </button>
+            <section id="yt-uploaded-videos" class="yt-uploaded-videos">
+                <div class="load">Loading.....</div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
