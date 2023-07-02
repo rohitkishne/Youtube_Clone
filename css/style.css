@@ -313,6 +313,7 @@ html{
     align-items: center;
     justify-content: flex-start;
     gap: 1px;
+    cursor: pointer;
 }
 
 /* video-card-thumbnail */

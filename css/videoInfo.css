@@ -73,7 +73,7 @@ html{
 /* .video-info-video-comment */
 .video-info .video-comment{
     width: 80%;
-    min-height: 25vh;
+    min-height: 35vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -96,10 +96,22 @@ html{
 /* .video-comment-comment */
 .video-comment .comment{
     width: 100%;
-    min-height: 6em;
     display: flex;
     gap: 5px;
     position: relative;
+}
+
+/* comment comment-person */
+.comment .comment-person{
+    width: 15%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.comment-person > img{
+    width: 2em;
+    border-radius: 50%;
 }
 
 /* .comment-comment-info */
@@ -107,6 +119,7 @@ html{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 80%;
 }
 
 /* .comment-info-person-name */

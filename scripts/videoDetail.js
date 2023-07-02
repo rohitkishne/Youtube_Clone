@@ -5,12 +5,12 @@ const videoContainer = document.getElementById("yt-videoId");
 
 const videoId = localStorage.getItem("videoId");
 
-const commentsContainer = document.getElementById("comment");
+const commentsContainer = document.getElementById("video-comment");
 
 videoContainer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`
 
 
-async function getVideoDetail(videoId) {
+async function getVideoDetail() {
     const url = `${BASE_URL_1}/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${API_KEY_1}`
 
     try {
@@ -18,7 +18,7 @@ async function getVideoDetail(videoId) {
             method:"get"
         });
         const data = await response.json();
-         
+        //  console.log(data)
         renderVideoDetails(data);
 
     } catch (error) {
@@ -38,11 +38,12 @@ const videoDesc = document.getElementById("video-desc");
 function renderVideoDetails(video) {
     videoDesc.innerHTML = `
                         <div class="video-title">
-                            ${video.snippet.title}
+                            ${video.items.snippet.channelTitle}
                         </div>
                         <div class="likes-views">
                             <div class="like-left">
-                                <span>${video.statistics.viewCount} views</span>
+                                <span>${video.items.statistics
+                                    .viewCount} views</span>
                                 <span>Oct 8, 2021</span>
                             </div>
                             <div class="like-right">
@@ -63,7 +64,7 @@ async function getComments() {
         const data = await response.json();
 
         const comments = data.items;
-
+        console.log(comments)
         renderComments(comments);
 
     } catch (error) {
@@ -82,13 +83,14 @@ function renderComments(comments) {
     commentsContainer.innerHTML = '';
     comments.forEach(comment => {
         commentsContainer.innerHTML += `
+                     <div id="comment" class="comment">
                         <div class="comment-person">
-                            <img src="./Assets/images/Header/Profile.png" alt="">
+                            <img src="${comment.snippet.topLevelComment.snippet.authorProfileImageUrl}" alt="">
                         </div>
                         <div class="comment-info">
                             <div class="person-name">
                                 <span class="name">
-                                    James Gouse
+                                    ${comment.snippet.topLevelComment.snippet.authorDisplayName}
                                 </span>
                                 <span class="when">
                                     8 hours ago
@@ -118,7 +120,8 @@ function renderComments(comments) {
                                 </button>
                             </div>
                             <div id="reply-comment" class="reply-comment"></div>
-                        </div>`
+                        </div>
+                    </div>`
     });
 }
 
@@ -188,5 +191,5 @@ function renderReplies(replies) {
     });   
 }
 
-getVideoDetail(videoId);
+// getVideoDetail();
 getComments();

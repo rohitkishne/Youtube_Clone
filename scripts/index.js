@@ -12,7 +12,7 @@ async function getVideos(searchString) {
         const data = await response.json();
     
         const videos = data.items;
-        renderVideos(videos);
+        getVideoData(videos);
     } catch (error) {
         allVidoesContainer.innerHTML = '';
         allVidoesContainer.innerHTML += 
@@ -22,6 +22,27 @@ async function getVideos(searchString) {
 
     }
 }
+
+async function getVideoData(videos) {
+    let videoData = [];
+    for (let i = 0; i < videos.length; i++) {
+      const video = videos[i];
+      const videoId = video.id.videoId;
+      videoData.push(await getVideoDetails(videoId));
+    }
+  
+    // console.log(videoData);
+    renderVideos(videoData);
+  }
+  
+  async function getVideoDetails(videoId) {
+    const url = `${BASE_URL}/videos?key=${API_KEY}&part=snippet,contentDetails,statistics&id=${videoId}`;
+    const response = await fetch(url, {
+      method: "get",
+    });
+    const data = await response.json();
+    return data.items[0];
+  }
 
 const searchVideo = document.getElementById("search");
 searchVideo.addEventListener("keyup" , (event) => {
@@ -41,7 +62,7 @@ function renderVideos(videos){
                                                 <img src="${thumbnailUrl}" alt="logo">
                                             </div>
                                             <div class="owner-title">
-                                                <span class="owner-photo"><img src="./Assets/images/Profile.png" alt="owner pic"></span>
+                                                <span class="owner-photo"><img src="./Assets/images/Header/Profile.png" alt="owner pic"></span>
                                                 <span class="video-desc">${video.snippet.title}</span>
                                             </div>
                                             <div class="owner-name">
