@@ -5,15 +5,18 @@ const allVidoesContainer = document.getElementById("yt-uploaded-videos");
 
 async function getVideos(searchString) {
     const url = `${BASE_URL}/search?key=${API_KEY}&q=${searchString}&part=snippet&type=video&maxResults=20`;
-    try {
+    try{
         const response = await fetch(url,{
             method:'get'
         });
         const data = await response.json();
-    
+        if(data===error)
+        {
+            throw error;
+        }
         const videos = data.items;
         getVideoData(videos);
-    } catch (error) {
+    }catch (error) {
         allVidoesContainer.innerHTML = '';
         allVidoesContainer.innerHTML += 
         `<div class="error">
