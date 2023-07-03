@@ -64,7 +64,7 @@ async function getComments() {
         const data = await response.json();
 
         const comments = data.items;
-        console.log(comments)
+        // console.log(comments)
         renderComments(comments);
 
     } catch (error) {
@@ -119,7 +119,6 @@ function renderComments(comments) {
                                     REPLY
                                 </button>
                             </div>
-                            <div id="reply-comment" class="reply-comment"></div>
                         </div>
                     </div>`
     });
@@ -129,26 +128,31 @@ function renderComments(comments) {
 const replyComment = document.getElementById("reply-comment");
 
 async function seeReply(commentId) {
+    
     replyComment.style.display = replyComment.style.display === 'none';
     if(replyComment.style.display === 'none')
     {
         replyComment.style.display = 'flex';
+        console.log(commentId)
         const url = `${BASE_URL_1}/comments?key=${API_KEY_1}&part=snippet&parentId=${commentId}&maxResults=5`
+        console.log(url)
         try {
             const response = await fetch(url, {
                 method:"get"
             });
             const data = await response.json();
-
+            
+            console.log(data)
             const replies = data.items;
-
             renderReplies(replies);
 
         } catch (error) {
+            console.log("error.message")
             console.log("error,occured", error)
         }
     }
     else{
+        console.log(commentId)
         replyComment.style.display = 'none'
     }
     

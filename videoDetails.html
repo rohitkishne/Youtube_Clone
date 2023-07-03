@@ -6,6 +6,7 @@
     <title>VideoDetails</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/videoInfo.css">
+    <link rel="stylesheet" href="./css/recommendation.css">
 </head>
 <body>
     <header class="navbar">
@@ -99,18 +100,65 @@
                             </div>
                             <button class="reply-btn" onclick="seeReply()">REPLY</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div id="reply-comment" class="reply-comment">
+                        <div id="comment" class="comment">
+                            <div class="comment-person">
+                                <img src="./Assets/images/Header/Profile.png" alt="">
+                            </div>
+                            <div class="comment-info">
+                                <div class="person-name">
+                                    <span class="name">James Gouse</span>
+                                    <span class="when">8 hours ago</span>
+                                </div>
+                                <div class="comment-type">
+                                    <span>
+                                        Wow, world is full of different skills
+                                    </span>
+                                </div>
+                                <div class="reply">
+                                    <div class="comment-like">
+                                        <span>
+                                            <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
+                                        </span>
+                                        <span class="likeno">3</span>
+                                    </div>
+                                    <div class="comment-dislike">
+                                        <span>
+                                            <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div> -->
+                <!-- </div> -->
             </div>
         </section>
-        <section class="recommendation">
-
+        <section id="recommendation" class="recommendation">
+            <!-- <div class="video-recommend" onclick="openVideoDetails('${video.id}')">
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <img src="${thumbnailUrl}" alt="logo">
+                    </div>
+                    <div class="owner-title">
+                        <span class="owner-photo"><img src="./Assets/images/Header/Profile.png" alt="owner pic"></span>
+                        <span class="video-desc">${video.snippet.title}</span>
+                    </div>
+                    <div class="owner-name">
+                        <span>${video.snippet.channelTitle}</span>
+                    </div>
+                    <div class="views-upload-date">
+                        <span>15k views </span>
+                        <span>1 week ago</span>
+                    </div>
+                </div> 
+            </div> -->
         </section>
     </main>
 
     <script src="./scripts/index.js"></script>
     <script src="./scripts/videoDetail.js"></script>
+    <script src="./scripts/recommendation.js"></script>
 </body>
 </html>
