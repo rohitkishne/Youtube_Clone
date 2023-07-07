@@ -18,9 +18,7 @@ async function getVideoDetail() {
             method:"get"
         });
         const data = await response.json();
-        //  console.log(data)
         renderVideoDetails(data);
-
     } catch (error) {
         const videoInfo = document.getElementById("videoInfo")
         videoInfo.innerHTML ='';
@@ -36,22 +34,48 @@ async function getVideoDetail() {
 const videoDesc = document.getElementById("video-desc");
 
 function renderVideoDetails(video) {
+    videoDesc.innerHTML = '';
     videoDesc.innerHTML = `
-                        <div class="video-title">
-                            ${video.items.snippet.channelTitle}
+                    <div class="video-title">
+                        ${video.items[0].snippet.title}
+                    </div>
+                    <div class="likes-views">
+                        <div class="like-left">
+                            <span>${video.items[0].statistics
+                                .viewCount} views</span>
+                          <span>Oct 8, 2021</span>
                         </div>
-                        <div class="likes-views">
-                            <div class="like-left">
-                                <span>${video.items.statistics
-                                    .viewCount} views</span>
-                                <span>Oct 8, 2021</span>
+                        <div class="like-right">
+                            <div class="video-desc-icons-container video-desc-like">
+                                <button class="video-desc-btn">
+                                    <img src="./Assets/images/videoDetails/like-dislike/video-desc-like.png" alt="like button">
+                                </button>
+                                <span>1.7k</span>
                             </div>
-                            <div class="like-right">
-                                <img src="./Assets/images/videoDetails/video-share/Top-Level.png" alt="">
+                            <div class="video-desc-icons-container video-desc-dislike">
+                                <button class="video-desc-btn">
+                                    <img src="./Assets/images/videoDetails/like-dislike/video-desc-dislike.png" alt="dislike button">
+                                </button>
+                                <span>623</span>
+                            </div>
+                            <div class="video-desc-icons-container video-desc-share">
+                                <button class="video-desc-btn">
+                                    <img src="./Assets/images/videoDetails/like-dislike/share.png" alt="share button">
+                                </button>
+                                <span>Share</span>
+                            </div>
+                            <div class="video-desc-icons-container video-desc-save">
+                                <button class="video-desc-btn"><img src="./Assets/images/videoDetails/like-dislike/save.png" alt="save button"></button>
+                                <span>Save</span>
+                            </div>
+                            <div class="video-desc-icons-container video-desc-others">
+                                <button class="video-desc-btn"><img src="./Assets/images/videoDetails/like-dislike/hamburger-icon.png" alt="menu icon"></button>
                             </div>
                         </div>
+                    </div>
 
-                    `
+                `
+    
 }
 
 
@@ -64,7 +88,6 @@ async function getComments() {
         const data = await response.json();
 
         const comments = data.items;
-        // console.log(comments)
         renderComments(comments);
 
     } catch (error) {
@@ -81,13 +104,13 @@ async function getComments() {
 
 function renderComments(comments) {
     commentsContainer.innerHTML = '';
-    comments.forEach(comment => {
+    comments.forEach((comment, index) => {
         commentsContainer.innerHTML += `
-                     <div id="comment" class="comment">
+                     <div id="comment-${index}" class="comment">
                         <div class="comment-person">
                             <img src="${comment.snippet.topLevelComment.snippet.authorProfileImageUrl}" alt="">
                         </div>
-                        <div class="comment-info">
+                        <div id="comment-info-${index}" class="comment-info">
                             <div class="person-name">
                                 <span class="name">
                                     ${comment.snippet.topLevelComment.snippet.authorDisplayName}
@@ -101,13 +124,13 @@ function renderComments(comments) {
                                     ${comment.snippet.topLevelComment.snippet.textDisplay}
                                 </span>
                             </div>
-                            <div class="reply">
+                            <div id="reply-${index}" class="reply">
                                 <div class="comment-like">
                                     <span>
                                         <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
                                     </span>
                                     <span class="likeno">
-                                        3
+                                    ${comment.snippet.topLevelComment.snippet.likeCount}
                                     </span>
                                 </div>
                                 <div class="comment-dislike">
@@ -115,9 +138,12 @@ function renderComments(comments) {
                                         <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
                                     </span>
                                 </div>
-                                <button class="reply-btn" onclick="seeReply('${comment.id}')">
+                                <button id="reply-btn" class="reply-btn" onclick="seeReply('${comment.id}', '${index}')">
                                     REPLY
                                 </button>
+                                <div class="reply-no">
+                                    <span>${comment.snippet.totalReplyCount}</span>
+                                </div>
                             </div>
                         </div>
                     </div>`
@@ -125,34 +151,41 @@ function renderComments(comments) {
 }
 
 
+
 const replyComment = document.getElementById("reply-comment");
 
-async function seeReply(commentId) {
-    
-    replyComment.style.display = replyComment.style.display === 'none';
+let previousCommentId = null;
+
+async function seeReply(commentId, index) {
+
+    if(replyComment.style.display === 'none')
+    {
+        previousCommentId = commentId
+    }
+    else if(previousCommentId !== commentId)
+    {
+        previousCommentId = commentId;
+        replyComment.style.display = 'none'
+    }
+
+    const eachComment = document.getElementById(`comment-info-${index}`)
     if(replyComment.style.display === 'none')
     {
         replyComment.style.display = 'flex';
-        console.log(commentId)
-        const url = `${BASE_URL_1}/comments?key=${API_KEY_1}&part=snippet&parentId=${commentId}&maxResults=5`
-        console.log(url)
+        const url = `${BASE_URL_1}/comments?key=${API_KEY_1}&part=snippet&parentId=${previousCommentId}&maxResults=5`
         try {
             const response = await fetch(url, {
                 method:"get"
             });
             const data = await response.json();
-            
-            console.log(data)
             const replies = data.items;
             renderReplies(replies);
-
+            eachComment.appendChild(replyComment)
         } catch (error) {
-            console.log("error.message")
             console.log("error,occured", error)
         }
     }
     else{
-        console.log(commentId)
         replyComment.style.display = 'none'
     }
     
@@ -162,18 +195,18 @@ function renderReplies(replies) {
     replyComment.innerHTML = '';
     replies.forEach(reply => {
         replyComment.innerHTML += `
-                            <div id="comment" class="comment">
+                        <div class="comment">
                             <div class="comment-person">
-                                <img src="./Assets/images/Header/Profile.png" alt="">
+                                <img src="${reply.snippet.authorProfileImageUrl}" alt="">
                             </div>
                             <div class="comment-info">
                                 <div class="person-name">
-                                    <span class="name">James Gouse</span>
+                                    <span class="name">${reply.snippet.authorDisplayName}</span>
                                     <span class="when">8 hours ago</span>
                                 </div>
                                 <div class="comment-type">
                                     <span>
-                                        Wow, world is full of different skills
+                                    ${reply.snippet.textDisplay}
                                     </span>
                                 </div>
                                 <div class="reply">
@@ -181,7 +214,7 @@ function renderReplies(replies) {
                                         <span>
                                             <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
                                         </span>
-                                        <span class="likeno">3</span>
+                                        <span class="likeno">${reply.snippet.likeCount}</span>
                                     </div>
                                     <div class="comment-dislike">
                                         <span>
@@ -191,9 +224,9 @@ function renderReplies(replies) {
                                 </div>
                             </div>
                         </div>
-                                    `
+                    `
     });   
 }
 
-// getVideoDetail();
+getVideoDetail();
 getComments();

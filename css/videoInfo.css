@@ -41,7 +41,6 @@ html{
 
 /* main recommendation */
 .recommendation{
-    border: 2px solid yellow;
     width: 30%;
     height: 86vh;
     overflow-y: scroll;
@@ -104,11 +103,30 @@ html{
     gap: 10px;
 }
 
+.likes-views .like-right{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.likes-views .like-right .video-desc-icons-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.likes-views .like-right .video-desc-icons-container .video-desc-btn{
+    cursor: pointer;
+    background-color: #111111;
+    outline: none;
+    border: none;
+}
+
 /* .video-comment-comment */
 .video-comment .comment{
     width: 100%;
     display: flex;
-    gap: 5px;
     position: relative;
 }
 
@@ -173,7 +191,7 @@ html{
 .reply .reply-btn{
     outline: none;
     border: none;
-    width: 30%;
+    width: 15%;
     height: 2em;
     background-color: #111111;
     color: gray;
@@ -183,18 +201,26 @@ html{
 
 /* .comment-reply */
 .comment .reply-comment{
-    position: absolute;
-    width: 75%;
-    min-height: 6em;
-    z-index: 3;
+    width: 100%;
     background-color: black;
     top: 80px;
-    left: 191px;
-    display: none;
+    left: 250px;
+    /* display: none; */
     flex-direction: column;
     gap: 10px;
-    border: 2px solid red;
+    padding: 10px;
+    min-height: 20vh;
     
+}
+
+.reply-no{
+    display: flex;
+    width: 5%;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    transform: translate(-40px,-1px);
+    font-size: 15px;
 }
 
 /*--------------Comments Not found----------------*/

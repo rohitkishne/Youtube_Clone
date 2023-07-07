@@ -57,7 +57,7 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <div class="video-desc">
+            <div id="video-desc" class="video-desc">
                 <!-- <div class="video-title">
                     Blind Woodturner:Turning passion into fine art
                 </div>
@@ -67,90 +67,116 @@
                         <span>Oct 8, 2021</span>
                     </div>
                     <div class="like-right">
-                        <img src="./Assets/images/videoDetails/video-share/Top-Level.png" alt="">
-                    </div>
-                </div> -->
-            </div>
-            <div id="video-comment" class="video-comment">
-                <!-- <div id="comment" class="comment">
-                    <div class="comment-person">
-                        <img src="./Assets/images/Header/Profile.png" alt="">
-                    </div>
-                    <div class="comment-info">
-                        <div class="person-name">
-                            <span class="name">James Gouse</span>
-                            <span class="when">8 hours ago</span>
+                        <div class="video-desc-icons-container video-desc-like">
+                            <button class="video-desc-btn">
+                                <img src="./Assets/images/videoDetails/like-dislike/video-desc-like.png" alt="like button">
+                            </button>
+                            <span>1.7k</span>
                         </div>
-                        <div class="comment-type">
-                            <span>
-                                Wow, world is full of different skills
-                            </span>
+                        <div class="video-desc-icons-container video-desc-dislike">
+                            <button class="video-desc-btn">
+                                <img src="./Assets/images/videoDetails/like-dislike/video-desc-dislike.png" alt="dislike button">
+                            </button>
+                            <span>623</span>
                         </div>
-                        <div class="reply">
-                            <div class="comment-like">
-                                <span>
-                                    <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
-                                </span>
-                                <span class="likeno">3</span>
-                            </div>
-                            <div class="comment-dislike">
-                                <span>
-                                    <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
-                                </span>
-                            </div>
-                            <button class="reply-btn" onclick="seeReply()">REPLY</button>
+                        <div class="video-desc-icons-container video-desc-share">
+                            <button class="video-desc-btn">
+                                <img src="./Assets/images/videoDetails/like-dislike/share.png" alt="share button">
+                            </button>
+                            <span>Share</span>
+                        </div>
+                        <div class="video-desc-icons-container video-desc-save">
+                            <button class="video-desc-btn"><img src="./Assets/images/videoDetails/like-dislike/save.png" alt="save button"></button>
+                            <span>Save</span>
+                        </div>
+                        <div class="video-desc-icons-container video-desc-others">
+                            <button class="video-desc-btn"><img src="./Assets/images/videoDetails/like-dislike/hamburger-icon.png" alt="menu icon"></button>
                         </div>
                     </div> -->
-                    <div id="reply-comment" class="reply-comment">
-                        <div id="comment" class="comment">
-                            <div class="comment-person">
-                                <img src="./Assets/images/Header/Profile.png" alt="">
+                </div>
+            </div>
+            <div id="video-comment" class="video-comment">
+                <!-- <div id="comment" class="comment"> -->
+                        <!-- <div class="comment-person">
+                            <img src="./Assets/images/Header/Profile.png" alt="">
+                        </div>
+                        <div class="comment-info">
+                            <div class="person-name">
+                                <span class="name">James Gouse</span>
+                                <span class="when">8 hours ago</span>
                             </div>
-                            <div class="comment-info">
-                                <div class="person-name">
-                                    <span class="name">James Gouse</span>
-                                    <span class="when">8 hours ago</span>
-                                </div>
-                                <div class="comment-type">
+                            <div class="comment-type">
+                                <span>
+                                    Wow, world is full of different skills
+                                </span>
+                            </div>
+                            <div class="reply">
+                                <div class="comment-like">
                                     <span>
-                                        Wow, world is full of different skills
+                                        <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
+                                    </span>
+                                    <span class="likeno">3</span>
+                                </div>
+                                <div class="comment-dislike">
+                                    <span>
+                                        <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
                                     </span>
                                 </div>
-                                <div class="reply">
-                                    <div class="comment-like">
-                                        <span>
-                                            <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
-                                        </span>
-                                        <span class="likeno">3</span>
-                                    </div>
-                                    <div class="comment-dislike">
-                                        <span>
-                                            <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
-                                        </span>
-                                    </div>
-                                </div>
+                                <button class="reply-btn" onclick="seeReply()">REPLY</button>
                             </div>
+                        </div>  -->
+                        <div id="reply-comment" class="reply-comment">
+                                <!-- <div id="comment" class="comment">
+                                    <div class="comment-person">
+                                        <img src="./Assets/images/Header/Profile.png" alt="">
+                                    </div>
+                                    <div class="comment-info">
+                                        <div class="person-name">
+                                            <span class="name">James Gouse</span>
+                                            <span class="when">8 hours ago</span>
+                                        </div>
+                                        <div class="comment-type">
+                                            <span>
+                                                Wow, world is full of different skills
+                                            </span>
+                                        </div>
+                                        <div class="reply">
+                                            <div class="comment-like">
+                                                <span>
+                                                    <img src="./Assets/images/videoDetails/like-dislike/like.png" alt="">
+                                                </span>
+                                                <span class="likeno">3</span>
+                                            </div>
+                                            <div class="comment-dislike">
+                                                <span>
+                                                    <img src="./Assets/images/videoDetails/like-dislike/dislike.png" alt="">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
                         </div>
-                    </div>
                 <!-- </div> -->
             </div>
         </section>
         <section id="recommendation" class="recommendation">
+            <div class="loader">Loading...</div>
             <!-- <div class="video-recommend" onclick="openVideoDetails('${video.id}')">
                 <div class="video-card">
                     <div class="thumbnail">
                         <img src="${thumbnailUrl}" alt="logo">
                     </div>
-                    <div class="owner-title">
-                        <span class="owner-photo"><img src="./Assets/images/Header/Profile.png" alt="owner pic"></span>
-                        <span class="video-desc">${video.snippet.title}</span>
-                    </div>
-                    <div class="owner-name">
-                        <span>${video.snippet.channelTitle}</span>
-                    </div>
-                    <div class="views-upload-date">
-                        <span>15k views </span>
-                        <span>1 week ago</span>
+                    <div class="recommend-content">
+                        <div class="owner-title">
+                            <span class="video-desc">${video.snippet.title}</span>
+                        </div>
+                        <div class="owner-name">
+                            <span>${video.snippet.channelTitle}</span>
+                        </div>
+                        <div class="views-upload-date">
+                            <span>15k views </span>
+                            <span>1 week ago</span>
+                        </div>
                     </div>
                 </div> 
             </div> -->
