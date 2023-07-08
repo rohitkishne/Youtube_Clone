@@ -3,10 +3,9 @@ const API_KEY_3 = "AIzaSyCkJL7aWZ0XqGopK1r-X0XX8n7sA2L5uC4";
 
 
 const recommendationContainer = document.getElementById("recommendation");
-console.log(recommendationContainer)
+
 async function getVideos(searchString) {
     const url = `${BASE_URL_3}/search?key=${API_KEY_3}&q=${searchString}&part=snippet&type=video&maxResults=20`;
-    console.log(url)
     try{
         const response = await fetch(url,{
             method:'get'
@@ -17,7 +16,6 @@ async function getVideos(searchString) {
         {
             throw error;
         }
-        console.log(videos)
         getVideoData(videos);
     }catch (error) {
         recommendationContainer.innerHTML = '';
@@ -37,7 +35,6 @@ async function getVideoData(videos) {
       videoData.push(await getVideoDetails(videoId));
     }
   
-    console.log(videoData);
     renderVideos(videoData);
   }
   
@@ -52,7 +49,6 @@ async function getVideoData(videos) {
 
 
   function renderVideos(videos){
-    console.log(videos)
     recommendationContainer.innerHTML = '';
     videos.forEach(video => {
         const thumbnailUrl = video.snippet.thumbnails.high.url;

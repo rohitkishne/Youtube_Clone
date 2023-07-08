@@ -12,12 +12,12 @@ videoContainer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`
 
 async function getVideoDetail() {
     const url = `${BASE_URL_1}/videos?part=snippet,contentDetails,statistics&id=${videoId}&key=${API_KEY_1}`
-
     try {
         const response = await fetch(url, {
             method:"get"
         });
         const data = await response.json();
+        document.title = `${data.items[0].snippet.channelTitle}`
         renderVideoDetails(data);
     } catch (error) {
         const videoInfo = document.getElementById("videoInfo")

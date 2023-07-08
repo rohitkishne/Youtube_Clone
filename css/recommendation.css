@@ -1,6 +1,7 @@
 .video-recommend{
     width: 100%;
     cursor: pointer;
+    padding: 0px 15px;
 }
 
 .video-card{
